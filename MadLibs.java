@@ -22,24 +22,17 @@ public class MadLibs {
 		}
 		br2.close();
 
-		try
-		{
-			File file3 = new File("adjectives.txt");
-			BufferedReader br3 = new BufferedReader(new FileReader(file3));
-
-			String st3;
-			while ((st3 = br3.readLine()) != null) {
-				adjs.add(st3);
-			}
-			br3.close()
-		}
-		catch (Exception ex)
-		{
-			ex.printStackTrace();
-		}
-
 		//3. Read an adjectives.txt file and store its list of adjectives into an arraylist.
 
+		File file3 = new File("adjectives.txt");
+		BufferedReader br3 = new BufferedReader(new FileReader(file3));
+
+		String st3;
+		while ((st3 = br3.readLine()) != null) {
+			adjs.add(st3);
+		}
+		br3.close()
+		
 		//4. Read an adverbs.txt file and store its list of adverbs into an arraylist.
 
 		//5. Prompt user for the name of a file containing a MadLibs story.
