@@ -13,6 +13,14 @@ public class MadLibs {
 		//1. Read a nouns.txt file and store its list of nouns into an arraylist.
 
 		//2. Read a verbs.txt file and store its list of verbs into an arraylist.
+		BufferedReader br2 = new BufferedReader (new FileReader (verbs.txt)); 
+		String verb = br2.readLine();
+		while (verb!=null);
+		{
+			verbs.add(verb);
+			verb = br2.readLine();
+		}
+		br2.close();
 
 		try
 		{
