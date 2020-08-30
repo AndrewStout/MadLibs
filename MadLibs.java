@@ -12,24 +12,23 @@ public class MadLibs {
 
 		//1. Read a nouns.txt file and store its list of nouns into an arraylist.
 
+		FileReader fr = new FileReader("nouns.txt");
+    	BufferedReader nounBuffer = new BufferedReader(fr);
+
+		String current = nounBuffer.readLine();
+
+		while(current != null)
+		{
+			nouns.add(current);
+			current = nounBuffer.readLine();
+		}
+		nounBuffer.close();
+		
 		//2. Read a verbs.txt file and store its list of verbs into an arraylist.
 
-
-		try
-		{
-			File file3 = new File("adjectives.txt");
-			BufferedReader br3 = new BufferedReader(new FileReader(file3));
-
-			String st3;
-			while ((st3 = br3.readLine()) != null) {
-				adjs.add(st3);
-			}
-			
-			br3.close();
-		}
 		catch (Exception ex)
 
-		BufferedReader br2 = new BufferedReader (new FileReader (verbs.txt)); 
+		BufferedReader br2 = new BufferedReader (new FileReader (verbs.txt));
 		String verb = br2.readLine();
 		while (verb!=null);
 
@@ -49,7 +48,7 @@ public class MadLibs {
 			adjs.add(st3);
 		}
 		br3.close()
-		
+
 		//4. Read an adverbs.txt file and store its list of adverbs into an arraylist.
 		File file4 = new File ("adverbs.txt");
 		BufferedReader br4 = new BufferedReader (new FileReader (file4));
