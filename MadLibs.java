@@ -14,6 +14,7 @@ public class MadLibs {
 
 		//2. Read a verbs.txt file and store its list of verbs into an arraylist.
 
+
 		try
 		{
 			File file3 = new File("adjectives.txt");
@@ -23,16 +24,32 @@ public class MadLibs {
 			while ((st3 = br3.readLine()) != null) {
 				adjs.add(st3);
 			}
-			br3.close()
+			
 			br3.close();
 		}
 		catch (Exception ex)
+
+		BufferedReader br2 = new BufferedReader (new FileReader (verbs.txt)); 
+		String verb = br2.readLine();
+		while (verb!=null);
+
 		{
-			ex.printStackTrace();
+			verbs.add(verb);
+			verb = br2.readLine();
 		}
+		br2.close();
 
 		//3. Read an adjectives.txt file and store its list of adjectives into an arraylist.
 
+		File file3 = new File("adjectives.txt");
+		BufferedReader br3 = new BufferedReader(new FileReader(file3));
+
+		String st3;
+		while ((st3 = br3.readLine()) != null) {
+			adjs.add(st3);
+		}
+		br3.close()
+		
 		//4. Read an adverbs.txt file and store its list of adverbs into an arraylist.
 		File file4 = new File ("adverbs.txt");
 		BufferedReader br4 = new BufferedReader (new FileReader (file4));
