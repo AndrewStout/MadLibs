@@ -1,20 +1,10 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
 
 public class MadLibs {
 
 	public static void main(String[] args) {
 		//0. Give variable names for each of the arraylists below and create Madlibs stories.
-		ArrayList<String> nouns = new ArrayList<String>();
 		
 		//1. Read a nouns.txt file and store its list of nouns into an arraylist.
-		nouns = readAndStoreNouns("MadlibsTestFile.txt");
-		
-		//For testing
-		//System.out.println(nouns);
 		
 		//2. Read a verbs.txt file and store its list of verbs into an arraylist.
 		
@@ -33,47 +23,4 @@ public class MadLibs {
 
 	}
 
-	private static ArrayList<String> readAndStoreNouns(String fileName) {
-		ArrayList<String> list = new ArrayList<String>();
-		
-		File nounsFile = new File(fileName);
-		FileReader fr;
-		BufferedReader br = null;
-		
-		try {
-			fr = new FileReader(nounsFile);
-			br = new BufferedReader(fr);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		String noun = "";
-		
-		try {
-			while(br.ready()) {
-				char character = (char) br.read();
-				
-				//to account for /n (LF) and /r (CR)
-				//for some reason all new lines in .txt are CR except for last one???
-				//*assumed new line after last word in file?
-				if((int) character == 10 || (int) character == 13) {
-					list.add(noun);
-					noun = "";
-				}
-				else {
-					noun += character;
-				}
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		try {
-			br.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		return list;
-	}
 }
