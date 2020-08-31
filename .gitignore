@@ -1,1 +1,3 @@
-/MadLibs.class
+*.class
+.project
+.classpath
